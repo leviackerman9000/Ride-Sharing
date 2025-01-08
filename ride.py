@@ -40,6 +40,15 @@ class Ride:
         self.rider.wallet -= self.estimated_fare
         self.driver.wallet += self.estimated_fare
 
+    # Total fare
+    def calculate_fare(self, distance, vehicle):
+        fare_per_km = {
+            'car' : 30,
+            'bike' : 20,
+            'cng' : 25
+        }
+        return distance * fare_per_km(vehicle)
+
     def __repr__(self):
         return f"Ride details. Started {self.start_location} to {self.end_location}"
     
